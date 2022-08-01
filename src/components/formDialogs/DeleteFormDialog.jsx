@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useStateContext } from '../../contexts/ContextProvider';
+import * as SX from './formDialogSX';
 
 import {
   Dialog,
@@ -22,6 +23,7 @@ const DeleteFormDialog = (props) => {
 
   return (
     <Dialog
+      sx={SX.formDialogSX}
       TransitionComponent={Transition}
       open={openDelete}
       onClose={handleDeleteClose}

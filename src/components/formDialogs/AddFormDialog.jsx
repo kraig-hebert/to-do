@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useStateContext } from '../../contexts/ContextProvider';
+import * as SX from './formDialogSX';
 
 import {
   Dialog,
@@ -31,6 +32,7 @@ const AddFormDialog = (props) => {
   };
   return (
     <Dialog
+      sx={SX.formDialogSX}
       TransitionComponent={Transition}
       open={openAddDialog}
       onClose={handleAddClose}

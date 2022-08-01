@@ -2,6 +2,7 @@ import React from 'react';
 import { useStateContext } from '../../../contexts/ContextProvider';
 import EditDateField from './editDateField/EditDateField';
 import EditTextField from './editTextField/EditTextField';
+import * as SX from '../formDialogSX';
 
 import {
   Dialog,
@@ -21,6 +22,7 @@ const EditFormDialog = (props) => {
 
   return (
     <Dialog
+      sx={SX.formDialogSX}
       TransitionComponent={Transition}
       open={openEdit}
       onClose={handleEditClose}
