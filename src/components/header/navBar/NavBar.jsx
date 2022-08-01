@@ -1,6 +1,5 @@
 // import basics
 import React from 'react';
-import './navBar.css';
 import * as SX from './navBarSettings';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
