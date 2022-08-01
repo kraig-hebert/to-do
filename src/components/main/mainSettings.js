@@ -87,7 +87,6 @@ export const dataGridSX = {
   },
   '& .MuiDataGrid-footerContainer': {
     backgroundColor: 'primary.main',
-    color: 'primary.main',
   },
   '& .MuiTablePagination-root': {
     color: '#fff',
