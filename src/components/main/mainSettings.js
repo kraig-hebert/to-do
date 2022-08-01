@@ -82,6 +82,9 @@ export const boxSX = {
 };
 
 export const dataGridSX = {
+  '& .MuiDataGrid-cell:focus, & .MuiDataGrid-cell:focus-within': {
+    outline: 'none',
+  },
   '& .MuiDataGrid-footerContainer': {
     backgroundColor: 'primary.main',
     color: 'primary.main',
