@@ -7,6 +7,12 @@ export const dataGridSX = {
     backgroundColor: 'primary.main',
     color: 'primary.main',
   },
+  '& .MuiTablePagination-root': {
+    color: '#fff',
+  },
+  '& .MuiButtonBase-root': {
+    color: '#fff',
+  },
 };
 
 export const switchSX = {
