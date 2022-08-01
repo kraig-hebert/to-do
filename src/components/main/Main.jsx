@@ -1,6 +1,13 @@
 // import basics
-import React from 'react';
-import { Box } from '@mui/material';
+import React, { useState } from 'react';
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
+  Typography,
+} from '@mui/material';
+import { ExpandMore } from '@mui/icons-material';
 import { DataGrid } from '@mui/x-data-grid';
 import * as SX from './mainSettings';
 

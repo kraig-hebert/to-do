@@ -91,7 +91,7 @@ export const dataGridSX = {
   '& .MuiTablePagination-root': {
     color: '#fff',
   },
-  '& .MuiIconBase-root, & .Mui-disabled': {
+  '& .MuiButtonBase-root': {
     color: '#fff',
   },
 };
