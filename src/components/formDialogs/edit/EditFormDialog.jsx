@@ -2,7 +2,7 @@ import React from 'react';
 import { useStateContext } from '../../../contexts/ContextProvider';
 import EditDateField from './editDateField/EditDateField';
 import EditTextField from './editTextField/EditTextField';
-import * as SX from '../formDialogSX';
+import * as SX from '../formDialogSettings';
 
 import {
   Dialog,

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useStateContext } from '../../contexts/ContextProvider';
-import * as SX from './formDialogSX';
+import * as SX from './formDialogSettings';
 
 import {
   Dialog,
