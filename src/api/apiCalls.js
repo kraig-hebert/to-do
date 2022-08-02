@@ -1,6 +1,7 @@
 import { forceDateString } from '../helpers/dateHelpers';
+import { createListDict } from './apiHelpers';
 
-const API_URL = 'http://localhost:3001/items/';
+const API_URL = 'http://localhost:3001/lists/';
 
 // retrieves data for mainTextList
 // transforms JSON date string to new Date()
@@ -12,14 +13,7 @@ export const getDataList = async () => {
     },
   });
   const listItems = await response.json();
-  const newListItems = listItems.map((item) => {
-    return {
-      ...item,
-      startDate: new Date(item.startDate),
-      endDate: new Date(item.endDate),
-    };
-  });
-  return newListItems;
+  return createListDict(listItems);
 };
 
 // adds new to-do to db.json

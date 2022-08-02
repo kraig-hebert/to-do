@@ -12,6 +12,8 @@ import {
 const stateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
+  const [listTitles, setListTitles] = useState([]);
+  const [listDict, setListDict] = useState({});
   const [mainTextList, setMainTextList] = useState([]);
   const [selectedRowData, setSelectedRowData] = useState({
     id: 0,
@@ -97,6 +99,7 @@ export const ContextProvider = ({ children }) => {
   // gets data to update mainTextList
   const getData = async () => {
     const newListItems = await getDataList();
+    console.log(newListItems);
     setMainTextList(newListItems);
   };
 
