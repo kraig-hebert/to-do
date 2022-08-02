@@ -13,3 +13,11 @@ export const typoSX = {
 export const buttonSX = {
   color: '#fff',
 };
+
+export const selectSX = {
+  color: '#fff',
+  border: '1px solid #fff',
+  '& .MuiSelect-icon': {
+    color: '#fff',
+  },
+};

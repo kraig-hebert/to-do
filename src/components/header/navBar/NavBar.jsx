@@ -1,17 +1,27 @@
 // import basics
-import React from 'react';
+import React, { useState } from 'react';
 import * as SX from './navBarSettings';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
+import {
+  AppBar,
+  Box,
+  Button,
+  IconButton,
+  MenuItem,
+  Select,
+  Toolbar,
+  Typography,
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useStateContext } from '../../../contexts/ContextProvider';
 
 const NavBar = () => {
   const { handleAddClick } = useStateContext();
+  const [age, setAge] = useState('one');
+
+  const handleSelectChange = (event) => {
+    setAge(event.target.value);
+    console.log(event.target.value);
+  };
 
   return (
     <Box>
@@ -30,6 +40,16 @@ const NavBar = () => {
             To-Do
           </Typography>
           <Box>
+            <Select
+              sx={SX.selectSX}
+              value={age}
+              label="List Title"
+              onChange={(event) => handleSelectChange(event)}
+            >
+              <MenuItem value="one">List 1</MenuItem>
+              <MenuItem value="two">List 2</MenuItem>
+              <MenuItem value="three">List 3</MenuItem>
+            </Select>
             <Button sx={SX.buttonSX} onClick={() => handleAddClick()}>
               Add
             </Button>
