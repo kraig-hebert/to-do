@@ -8,12 +8,15 @@ import {
   getDataList,
   updateStatus,
 } from '../api/apiCalls';
+import { selectClasses } from '@mui/material';
 
 const stateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
   const [listTitles, setListTitles] = useState([]);
-  const [listDict, setListDict] = useState({});
+  const [selectValue, setSelectValue] = useState();
+
+  const [dictList, setDictList] = useState({});
   const [mainTextList, setMainTextList] = useState([]);
   const [selectedRowData, setSelectedRowData] = useState({
     id: 0,
@@ -99,8 +102,10 @@ export const ContextProvider = ({ children }) => {
   // gets data to update mainTextList
   const getData = async () => {
     const newListItems = await getDataList();
-    console.log(newListItems);
-    setMainTextList(newListItems);
+    setDictList(newListItems);
+    setListTitles(Object.keys(newListItems));
+    setSelectValue(Object.keys(newListItems)[0]);
+    setMainTextList(newListItems[Object.keys(newListItems)[0]]);
   };
 
   // adds new to-do to the db
@@ -134,6 +139,11 @@ export const ContextProvider = ({ children }) => {
     getData();
   };
 
+  //updates mainTextList when selectValue changes
+  useEffect(() => {
+    if (selectValue) setMainTextList(dictList[selectValue]);
+  }, [selectValue]);
+
   // fetches data on load
   useEffect(() => {
     getData();
@@ -155,12 +165,16 @@ export const ContextProvider = ({ children }) => {
         handleEditDateFieldChange,
         handleEditTextFieldChange,
         handleEditClick,
+        listTitles,
         mainTextList,
         openAddDialog,
         openDelete,
         openEdit,
         setDataForDelete,
         selectedRowData,
+        selectValue,
+        setSelectValue,
+        setListTitles,
       }}
     >
       {children}

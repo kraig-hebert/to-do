@@ -1,5 +1,5 @@
 // import basics
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as SX from './navBarSettings';
 import {
   AppBar,
@@ -15,11 +15,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useStateContext } from '../../../contexts/ContextProvider';
 
 const NavBar = () => {
-  const { handleAddClick } = useStateContext();
-  const [age, setAge] = useState('one');
+  const { handleAddClick, listTitles, selectValue, setSelectValue } =
+    useStateContext();
 
   const handleSelectChange = (event) => {
-    setAge(event.target.value);
+    setSelectValue(event.target.value);
     console.log(event.target.value);
   };
 
@@ -42,14 +42,17 @@ const NavBar = () => {
           <Box>
             <Select
               sx={SX.selectSX}
-              value={age}
+              value={selectValue ? selectValue : ''}
               label="List Title"
               onChange={(event) => handleSelectChange(event)}
             >
-              <MenuItem value="one">List 1</MenuItem>
-              <MenuItem value="two">List 2</MenuItem>
-              <MenuItem value="three">List 3</MenuItem>
+              {listTitles.map((title) => (
+                <MenuItem key={title} value={title}>
+                  {title}
+                </MenuItem>
+              ))}
             </Select>
+
             <Button sx={SX.buttonSX} onClick={() => handleAddClick()}>
               Add
             </Button>
