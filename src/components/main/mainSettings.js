@@ -92,7 +92,7 @@ export const dataGridSX = {
     color: '#fff',
   },
   '& .MuiButtonBase-root': {
-    color: '#fff',
+    color: '#fff !important',
   },
 };
 
